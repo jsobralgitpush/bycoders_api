@@ -1,14 +1,16 @@
 class TransactionsController < ActionController::API
     def index
         @transactions = Transaction.all
+
+        filter_by_query if params[:store_name].present?
     end
 
     def create
-        #como vamos receber o arquivo via input?
-
-        transaction = Transaction.new
-
+        file_data = File.open(params[:file]).readlines.map(&:chomp)
+        
         file_data.each do |line|
+            transaction = Transaction.new
+
             transaction.transaction_type = line[0]
             transaction.date =  line[1, 8]
             transaction.amount = line[9, 10]
@@ -17,10 +19,15 @@ class TransactionsController < ActionController::API
             transaction.time =  line[42, 6]
             transaction.store_owner =  line[48, 14]
             transaction.store_name = line[62, 19]
-        end
 
-        if transaction.save
-        else
+            transaction.save
         end
+    end
+
+    private
+    def filter_by_query
+        @transactions = @transactions.ransack(
+            store_name_cont: params[:store_name]
+        ).result
     end
 end
