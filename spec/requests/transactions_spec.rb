@@ -13,5 +13,13 @@ RSpec.describe "Transactions Requests", :type => :request do
         expect(assigns(:transactions)).to eq(Transaction.ransack(store_name_cont: controller.params[:store_name]).result)
     end
 
+    it "should create new transactions" do
+        expect {
+            post '/api/transactions', params: {
+                file: Rack::Test::UploadedFile.new(Rails.root.join('public', 'cnab.txt'), 'text/plain')
+            }
+        }.to change{Transaction.count}.by(21)
+    end
+
     
 end
