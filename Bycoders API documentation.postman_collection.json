@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "a806289a-248d-4ca1-85fe-a6f44fe1ac69",
+		"name": "Bycoders API documentation",
+		"description": "# Introduction\nThis API aims to GET and POST items into a Transaction table. \n\n# Overview\nGET all transactions:\n- Call the api using the endpoint '/api/transactions' to get all transactions\n\nGET all transactions of a Store;\n- Call the API using the endpoint '/api/transactions' adding a param 'store_name' contain the 'name' of the store you want to get the transactions from\n\nPOST new transactions\n- Call the API using the endpoint '/api/transactions' with a paramater 'file' contain a CNAB pattern txt file with the transactions you want do insert into Transactions\n\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13293541"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/transactions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"transactions"
+					]
+				},
+				"parameter": {
+					"name": "store_name",
+					"description": "Pass the Store Name which you want to get the transactions from",
+					"type": "string",
+					"enabled": true
+				},
+				"description": "Returns all transactions",
+				"payload": {
+					"id": "1",
+					"transaction_id": "1",
+					"date": "20200101",
+					"amount": 100.00,
+					"taxpayer_id": "12345678912",
+					"card_used": "1111****1111",
+					"time": "111111",
+					"store_owner": "Bycoders",
+					"store_name": "Store 1"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/transactions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"transactions"
+					]
+				},
+				"parameter": {
+					"name": "file",
+					"type": "text",
+					"description": "Pass the CNAB pattern txt file with the transactions you want do insert into Transactions"
+				},
+				"description": "Create new transactions based on CNAB file"
+			},
+			"response": []
+		}
+	]
+}
