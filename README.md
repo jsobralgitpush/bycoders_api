@@ -21,7 +21,7 @@ Finally, move the `docker-compose.yml` to the parent folder to build the front a
 
 Check for the [API documentation json file](https://github.com/jsobralgitpush/bycoders_api/blob/main/Bycoders%20API%20documentation.postman_collection.json) to see how to use it
 
-### Unit Tests
+### Tests
 
 To run model tests
 `bundle exec rspec spec/models/transaction_spec.rb`
