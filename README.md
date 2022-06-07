@@ -17,5 +17,14 @@ This repo contains the API of bycoders application.
 ### Run commands
 Finally, move the `docker-compose.yml` to the parent folder to build the front and the backend container and run `docker-compose build` to start the containers and `docker-compose up` to build the project
 
--- 
+### API Documentation
 
+Check for the (API documentation json file)[https://github.com/jsobralgitpush/bycoders_api/blob/main/Bycoders%20API%20documentation.postman_collection.json] to see how to use it
+
+### Unit Tests
+
+To run model tests
+`bundle exec rspec spec/models/transaction_spec.rb`
+
+To run requests tests
+`bundle exec rspec spec/requests/transactions_spec.rb`
