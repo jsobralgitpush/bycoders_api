@@ -1,24 +1,9 @@
-# README
+## API using Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repo contains the API of bycoders application.
 
-Things you may want to cover:
+To start this project you have to create a folder and put inside of it two subfolders. 
+- [This one containing the frontend](https://github.com/jsobralgitpush/bycoders_client)
+- This one containg the backend(https://github.com/jsobralgitpush/bycoders_api)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+After this, move the `docker-compose.yml` to the parent folder to build the front and the backend container and run `docker-compose build` to start the containers and `docker-compose up` to build the project
